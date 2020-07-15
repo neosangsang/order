@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name="Payment", url="http://Payment:8080")
+@FeignClient(name="Payment", url="http://admin06-sk-payment:8080")
 public interface PaymentService {
 
     @RequestMapping(method= RequestMethod.POST, path="/payments")
