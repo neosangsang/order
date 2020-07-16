@@ -67,10 +67,10 @@ spring:
       bindings:
         event-in:
           group: Order
-          destination: rental1
+          destination: rental2
           contentType: application/json
         event-out:
-          destination: rental1
+          destination: rental2
           contentType: application/json
           
 feign:
