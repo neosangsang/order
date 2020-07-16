@@ -126,6 +126,24 @@ public class OrderStateViewHandler {
         }
     }
 
+    @StreamListener(KafkaProcessor.INPUT)
+    public void whenAssigned_then_UPDATE_(@Payload Assigned assigned) {
+        try {
+            if (assigned.isMe()) {
+                // view 객체 조회
+                List<OrderState> orderStateList = orderStateRepository.findByOrderId(assigned.getOrderId());
+                for(OrderState orderState : orderStateList){
+                    // view 객체에 이벤트의 eventDirectValue 를 set 함
+                    orderState.setUserId(assigned.getUserId());
+                    orderState.setAssignStatus(assigned.getStatus());
+                    // view 레파지 토리에 save
+                    orderStateRepository.save(orderState);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
    // @StreamListener(KafkaProcessor.INPUT)
     //public void when_then_DELETE_(@Payload  ) {
    //     try {

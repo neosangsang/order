@@ -19,6 +19,8 @@ public class OrderState {
         private String checkDate;
         private String checkStatus;
         private Long productId;
+        private String userId;
+        private String assignStatus;
 
 
         public Long getId() {
@@ -92,4 +94,19 @@ public class OrderState {
             this.productId = productId;
         }
 
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public String getAssignStatus() {
+            return assignStatus;
+        }
+
+        public void setAssignStatus(String assignStatus) {
+            this.assignStatus = assignStatus;
+        }
 }
